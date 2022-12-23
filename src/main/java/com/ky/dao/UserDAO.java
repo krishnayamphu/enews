@@ -43,7 +43,7 @@ public class UserDAO {
             Connection cn = ConnectDB.connect();
             String sql = "SELECT * FROM users WHERE id=?";
             PreparedStatement ps = cn.prepareStatement(sql);
-            ps.setInt(1,id);
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 user = new User();
@@ -63,8 +63,7 @@ public class UserDAO {
         return user;
     }
 
-
-    public static void addUser(User user) {
+    public static void create(User user) {
         try {
             Connection cn = ConnectDB.connect();
             String sql = "INSERT INTO users (username,email,password,photo) VALUES (?,?,?,?)";
@@ -80,6 +79,29 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean update(User user) {
+        boolean status = false;
+        try {
+            Connection cn = ConnectDB.connect();
+            String sql = "UPDATE users SET username=?,email=?,password=?,photo=? WHERE id=?";
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getPassword());
+            ps.setString(4, user.getPhoto());
+            ps.setInt(5, user.getId());
+            if (ps.executeUpdate() == 0) {
+                status = true;
+            }
+            System.out.println("data updated");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
     }
 
     public static boolean remove(int id) {

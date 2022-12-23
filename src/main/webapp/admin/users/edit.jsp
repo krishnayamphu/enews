@@ -7,6 +7,7 @@
 
 <div class="user-form">
     <form action="user-edit" method="post">
+        <input type="hidden" name="id" value="${user.id}">
         <label>Username</label>
         <input type="text" name="username"  value="${user.username}" required>
         <label>Email</label>

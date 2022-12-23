@@ -22,7 +22,7 @@ public class RegisterController extends HttpServlet {
         String password = request.getParameter("password");
         String photo = "";
         User user=new User(username,email,password,photo);
-        UserDAO.addUser(user);
+        UserDAO.create(user);
         response.sendRedirect("users");
     }
 }

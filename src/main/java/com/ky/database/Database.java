@@ -7,12 +7,12 @@ import com.ky.database.tables.UsersTable;
 public class Database {
     public static void run(){
         UsersTable.create();
-        CategoryTable.create();
-        PostsTable.create();
+//        CategoryTable.create();
+//        PostsTable.create();
     }
     public static void remove(){
         UsersTable.destroy();
-        CategoryTable.destroy();
-        PostsTable.destroy();
+//        CategoryTable.destroy();
+//        PostsTable.destroy();
     }
 }

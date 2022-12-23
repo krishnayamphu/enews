@@ -25,7 +25,7 @@
             <td>
                 <a href="user-edit?id=${user.id}">edit</a>
                 <form action="users" method="post">
-                    <input type="hidden" name="id" value="${user.id}">;
+                    <input type="hidden" name="id" value="${user.id}">
                     <button>Remove</button>
                 </form>
             </td>
