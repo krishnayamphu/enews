@@ -25,7 +25,7 @@ public class MediaController extends HttpServlet {
         String root = getServletContext().getRealPath("/uploads");
         ArrayList<String> files = MediaFile.getFiles(root);
         request.setAttribute("files", files);
-        request.getRequestDispatcher("media/index.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/media/index.jsp").forward(request, response);
     }
 
     @Override

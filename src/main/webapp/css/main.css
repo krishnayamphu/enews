@@ -1,0 +1,66 @@
+*{
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: aquamarine;
+    padding: 30px;
+}
+.sidebar{
+    float: left;
+    background-color: #cbcbcb;
+    width: 200px;
+    padding: 15px;
+    height: 100%;
+}
+.sidebar nav{
+    display: flex;
+    flex-direction: column;
+}
+nav a{
+    text-decoration: none;
+    color:#222;
+    padding: 10px 0;
+    display: block;
+}
+.content{
+    padding: 15px;
+    float: left;
+    width: calc(100% - 200px);
+    height: 100%;
+}
+.content form{
+}
+.content form label{
+    margin-bottom: 5px;
+    display: block;
+}
+.content form input{
+    width: 100%;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    display: block;
+}
+.content form textarea{
+    width: 100%;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    display: block;
+}
+.content form button{
+    padding: 5px 15px;
+    margin-bottom: 15px;
+}
+.content form select{
+    padding: 5px 10px;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+table th, table td{
+    border: 1px solid #ccc;
+    padding: 5px;
+}
