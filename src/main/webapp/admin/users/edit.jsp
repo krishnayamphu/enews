@@ -9,6 +9,7 @@
 <main>
     <%@include file="../sidebar.jsp" %>
     <div class="content">
+        <h4>User Details</h4>
         <div class="user-form">
             <form action="user-edit" method="post">
                 <input type="hidden" name="id" value="${user.id}">

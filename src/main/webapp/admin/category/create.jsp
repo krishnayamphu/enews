@@ -9,6 +9,7 @@
 <main>
     <%@include file="../sidebar.jsp" %>
     <div class="content">
+        <h4>New Category</h4>
         <form action="category-create" method="post">
             <label>Name</label>
             <input type="text" name="name" required>

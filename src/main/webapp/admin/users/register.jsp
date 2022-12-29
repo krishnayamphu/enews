@@ -7,6 +7,7 @@
 <body>
 
 <div class="register-form">
+    <h4>User Registration</h4>
     <form action="register" method="post">
         <label>Username</label>
         <input type="text" name="username" required>

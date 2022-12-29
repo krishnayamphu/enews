@@ -10,6 +10,7 @@
 <main>
     <%@include file="../sidebar.jsp" %>
     <div class="content">
+        <h4>New Post</h4>
         <form action="post-create" method="post">
             <label>Post Title</label>
             <input type="text" name="title" required>

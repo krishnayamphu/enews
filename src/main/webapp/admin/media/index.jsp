@@ -20,7 +20,7 @@
         <div class="media-container">
             <c:forEach var="item" items="${files}">
                 <div class="media-card">
-                    <img height="100" width="100" src="uploads/${item}" alt="${item}">
+                    <img src="uploads/${item}" alt="${item}">
                     <div class="media-action">
                         <a href="uploads/${item}">View</a>
                         <form action="media-del" method="post">

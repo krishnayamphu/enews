@@ -56,6 +56,69 @@ nav a{
 .content form select{
     padding: 5px 10px;
 }
+.content h4{
+    padding-top: 5px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.media-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.media-upload{
+    display: flex;
+    align-items: center;
+}
+.media-upload form{
+    margin: 0;
+}
+.media-upload label{
+    margin-bottom: 15px!important;
+}
+.media-upload input{
+    width: auto!important;
+}
+.media-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.media-card img{
+    width: 142px;
+    height: 112px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px 5px 0 0;
+}
+.media-card .media-action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f6f6f6;
+    padding: 5px 5px;
+}
+.media-action a{
+    padding: 3px 0;
+    text-decoration: none;
+    color: #222222;
+    background-color: #efefef;
+    border: 1px solid #767676;
+    font-size: 14px;
+    border-radius: 2px;
+    width: 64px;
+    text-align: center;
+    margin-right: 5px;
+}
+.media-action button{
+    padding: 3px 0!important;
+    margin-bottom: 0!important;
+    width: 64px;
+    text-align: center;
+}
 table{
     border-collapse: collapse;
     width: 100%;
