@@ -4,6 +4,7 @@ import com.ky.dao.CategoryDAO;
 import com.ky.dao.PostDAO;
 import com.ky.models.Category;
 import com.ky.models.Post;
+import com.ky.utils.MediaFile;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,6 +17,9 @@ public class PostCreateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Category> categories= CategoryDAO.allCategories();
+        String root = getServletContext().getRealPath("/uploads");
+        ArrayList<String> files = MediaFile.getFiles(root);
+        request.setAttribute("files", files);
         request.setAttribute("categories",categories);
         request.getRequestDispatcher("admin/posts/create.jsp").forward(request,response);
     }

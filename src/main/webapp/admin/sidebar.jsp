@@ -1,6 +1,6 @@
 <div class="sidebar">
     <nav>
-        <a href="#">Home</a>
+        <a href="posts">Home</a>
         <hr>
         <a href="media">Media</a>
         <hr>
