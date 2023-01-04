@@ -15,7 +15,34 @@ public class PostDAO {
         ArrayList<Post> posts = new ArrayList<>();
         try {
             Connection cn = ConnectDB.connect();
-            String sql = "SELECT * FROM posts";
+            String sql = "SELECT * FROM posts ORDER BY id DESC";
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Post post = new Post();
+                post.setId(rs.getInt("id"));
+                post.setTitle(rs.getString("title"));
+                post.setContent(rs.getString("content"));
+                post.setImage(rs.getString("image"));
+                post.setCategoryId(rs.getInt("category_id"));
+                post.setUserId(rs.getInt("user_id"));
+                post.setCreatedAt(rs.getString("created_at"));
+                post.setUpdatedAt(rs.getString("updated_at"));
+                posts.add(post);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return posts;
+    }
+
+    public static ArrayList<Post> latestPosts() {
+        ArrayList<Post> posts = new ArrayList<>();
+        try {
+            Connection cn = ConnectDB.connect();
+            String sql = "SELECT * FROM posts ORDER BY id DESC LIMIT 5";
             PreparedStatement ps = cn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

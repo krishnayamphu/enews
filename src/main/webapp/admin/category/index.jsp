@@ -25,11 +25,14 @@
                     <td>${category.name}</td>
                     <td>${category.description}</td>
                     <td>${category.createdAt}</td>
-                    <th><a href="category-edit?id=${category.id}">Edit</a>
-                        <form action="category" method="post">
-                            <input type="hidden" name="id" value="${category.id}">
-                            <button>Delete</button>
-                        </form>
+                    <th>
+                        <div class="action-group">
+                            <a href="category-edit?id=${category.id}">Edit</a>
+                            <form action="category" method="post">
+                                <input type="hidden" name="id" value="${category.id}">
+                                <button>Delete</button>
+                            </form>
+                        </div>
                     </th>
                 </tr>
             </c:forEach>

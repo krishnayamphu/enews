@@ -9,14 +9,15 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "HomeController", value = "/home")
-public class HomeController extends HttpServlet {
+@WebServlet(name = "SinglePostController", value = "/single")
+public class SinglePostController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<Post> posts= PostDAO.allPosts();
+        int id=Integer.parseInt(request.getParameter("id"));
         ArrayList<Post> latestPosts= PostDAO.latestPosts();
-        request.setAttribute("posts",posts);
+        Post post= PostDAO.getPost(id);
+        request.setAttribute("post",post);
         request.setAttribute("latestPosts",latestPosts);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
+        request.getRequestDispatcher("single.jsp").forward(request,response);
     }
 }

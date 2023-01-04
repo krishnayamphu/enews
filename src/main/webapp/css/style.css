@@ -1,0 +1,132 @@
+*{
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+p{
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+.login-form{
+    width: 400px;
+    margin: 10% auto;
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0 0 5px #222222;
+}
+.login-form label{
+    display: block;
+    margin-bottom: 5px;
+}
+.login-form input{
+    width: 100%;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+.login-form button{
+    padding: 5px 15px;
+}
+.error{
+    padding-bottom: 15px;
+    color: red;
+}
+/*main */
+.container{
+    width: 80%;
+    margin:0 auto;
+}
+.row{
+    display: flex;
+    width: 100%;
+}
+.content{
+    width: 60%;
+}
+/* sidebar */
+.sidebar{
+    width: 40%;
+    padding: 15px;
+    margin-left: 30px;
+}
+.sidebar ul{
+    list-style: none;
+}
+.sidebar ul li{
+    border-bottom: 1px solid #cccccc;
+}
+.sidebar ul li a{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    color:black;
+}
+.sidebar ul li a:hover{
+    transition: all 0.5s ease;
+    background-color: #767676;
+}
+/* nav */
+.nav-wrap{
+    background-color: cornflowerblue;
+    margin-bottom: 30px;
+}
+nav{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav a{
+    text-decoration: none;
+    padding: 10px 30px;
+    color:white;
+}
+.text-brand{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+    color:white;
+}
+
+/* posts */
+.post-list{
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+}
+.post-list .post-thumb{
+    width: 150px;
+    height: 170px;
+    object-fit: cover;
+    object-position: top;
+}
+.post-list .post-heading{
+    margin-bottom: 15px;
+}
+.post-heading a{
+    text-decoration: none;
+    color: #222222;
+}
+.post-heading a:hover{
+    text-decoration: underline;
+    color: black;
+}
+.post-list .post-body{
+   padding: 15px;
+}
+
+/* single post */
+.post .post-heading{
+    font-size: 30px;
+}
+.post .post-thumb{
+    width: 100%;
+    display: block;
+    margin: 30px 0;
+}
+

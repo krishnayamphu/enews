@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="css/style.css">
     <title>User Login</title>
 </head>
 <body>
@@ -9,7 +10,7 @@
 <div class="login-form">
     <form action="login" method="post">
         <c:if test="${err!=null}">
-            <p>${err}</p>
+            <p class="error">${err}</p>
         </c:if>
         <label>Username</label>
         <input type="text" name="username" required>

@@ -4,6 +4,7 @@ import com.ky.dao.CategoryDAO;
 import com.ky.dao.PostDAO;
 import com.ky.models.Category;
 import com.ky.models.Post;
+import com.ky.utils.MediaFile;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,7 +18,10 @@ public class PostEditController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id=Integer.parseInt(request.getParameter("id"));
         ArrayList<Category> categories= CategoryDAO.allCategories();
+        String root = getServletContext().getRealPath("/uploads");
+        ArrayList<String> files = MediaFile.getFiles(root);
         Post post= PostDAO.getPost(id);
+        request.setAttribute("files", files);
         request.setAttribute("categories",categories);
         request.setAttribute("post",post);
         request.getRequestDispatcher("admin/posts/edit.jsp").forward(request,response);

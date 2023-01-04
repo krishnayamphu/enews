@@ -161,3 +161,37 @@ table th, table td{
     border: 1px solid #ccc;
     padding: 5px;
 }
+.action-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.action-group a{
+    border: 1px solid #cccccc;
+    padding: 4px 20px;
+    margin-right: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #222222;
+    border-radius: 2px;
+    font-weight: normal;
+}
+.action-group button{
+    border: 1px solid #cccccc;
+    padding: 3px 5px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #222222;
+    border-radius:2px;
+    margin: 0!important;
+}
+.d-none{
+    display: none;
+}
+.d-block{
+    display: block;
+}
+.btn-logout{
+    margin-top: 15px;
+    padding: 3px 10px;
+}

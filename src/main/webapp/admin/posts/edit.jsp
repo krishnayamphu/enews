@@ -3,7 +3,7 @@
 <html>
 <head>
     <%@include file="../head.jsp" %>
-    <title>Category Details</title>
+    <title>Post Details</title>
 </head>
 <body>
 <%@include file="../header.jsp" %>
@@ -24,11 +24,43 @@
                 </c:forEach>
             </select>
             <label>Image</label>
-            <button>Set Image</button>
-            <input type="text" name="image" value="${post.image}">
+            <button type="button" onclick="openMedia()">Set Image</button>
+            <img class="${post.image!=''?'d-none':''}" id="postThumb"  src="uploads/${post.image}" alt="${post.image}">
+            <input type="hidden" id="postImage" name="image" value="${post.image}">
             <button>update</button>
+            <div id="mediaOverlay" class="media-overlay">
+                <div class="media-container media-wrap">
+                    <button class="btn-close" type="button" onclick="closeMedia()">Close</button>
+                    <c:forEach var="item" items="${files}">
+                        <div class="media-card">
+                            <img onclick="setImage('${item}')" src="uploads/${item}" alt="${item}">
+                            <div class="media-action">
+                                <a href="uploads/${item}">View</a>
+                                <form action="media-del" method="post">
+                                    <input type="hidden" name="media" value="${item}">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
         </form>
     </div>
 </main>
+
+<script>
+    function setImage(filename){
+        document.getElementById("postImage").value=filename;
+        document.getElementById("postThumb").src="uploads/"+filename;
+        closeMedia();
+    }
+    function closeMedia(){
+        document.getElementById("mediaOverlay").style.display="none";
+    }
+    function openMedia(){
+        document.getElementById("mediaOverlay").style.display="flex";
+    }
+</script>
 </body>
 </html>

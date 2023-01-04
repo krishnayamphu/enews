@@ -28,11 +28,13 @@
                     <td>${user.photo}</td>
                     <td>${user.createdAt}</td>
                     <td>
-                        <a href="user-edit?id=${user.id}">edit</a>
-                        <form action="users" method="post">
-                            <input type="hidden" name="id" value="${user.id}">
-                            <button>Remove</button>
-                        </form>
+                        <div class="action-group">
+                            <a href="user-edit?id=${user.id}">edit</a>
+                            <form action="users" method="post">
+                                <input type="hidden" name="id" value="${user.id}">
+                                <button>Remove</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             </c:forEach>

@@ -12,6 +12,8 @@
         <hr>
         <a href="users">Manage Users</a>
         <hr>
-        <a href="#">Logout</a>
+        <form action="logout" method="post">
+            <button class="btn-logout">Logout</button>
+        </form>
     </nav>
 </div>
