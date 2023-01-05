@@ -60,6 +60,31 @@ public class CategoryDAO {
         return category;
     }
 
+    public static Category getCategoryByName(String name) {
+        Category category = null;
+        try {
+            Connection cn = ConnectDB.connect();
+            String sql = "SELECT * FROM category WHERE name=?";
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setString(1, name);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                category = new Category();
+                category.setId(rs.getInt("id"));
+                category.setName(rs.getString("name"));
+                category.setDescription(rs.getString("description"));
+                category.setCreatedAt(rs.getString("created_at"));
+                category.setUpdatedAt(rs.getString("updated_at"));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return category;
+    }
+
     public static void create(Category category) {
         try {
             Connection cn = ConnectDB.connect();

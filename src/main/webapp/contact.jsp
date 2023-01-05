@@ -19,7 +19,7 @@
                 <p>phone: 01-9876541</p>
 
                 <h3>Quick Enquiry</h3>
-                <form action="contact" method="post">
+                <form class="quick-enquiry" action="contact" method="post">
                     <label>Name</label>
                     <input type="text" name="name" required>
                     <label>Email</label>
@@ -27,13 +27,11 @@
                     <label>Subject</label>
                     <input type="text" name="subject" required>
                     <label>Message</label>
-                    <textarea rows="5" cols="20"></textarea>
+                    <textarea rows="5" cols="20" name="message"></textarea>
                     <button>Send</button>
                 </form>
             </div>
-            <div class="sidebar">
-                <h3>Latest Updates:</h3>
-            </div>
+            <%@include file="sidebar.jsp"%>
         </div>
     </div>
 

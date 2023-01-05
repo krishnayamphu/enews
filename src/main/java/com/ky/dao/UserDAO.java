@@ -63,6 +63,33 @@ public class UserDAO {
         return user;
     }
 
+    public static User getUser(String username) {
+        ArrayList<User> users = new ArrayList<>();
+        User user = null;
+        try {
+            Connection cn = ConnectDB.connect();
+            String sql = "SELECT * FROM users WHERE username=?";
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setPhoto(rs.getString("photo"));
+                user.setCreatedAt(rs.getString("created_at"));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
     public static void create(User user) {
         try {
             Connection cn = ConnectDB.connect();

@@ -6,9 +6,9 @@ import com.ky.database.tables.UsersTable;
 
 public class Database {
     public static void run(){
-        UsersTable.create();
-        CategoryTable.create();
-        PostsTable.create();
+//        UsersTable.create();
+//        CategoryTable.create();
+//        PostsTable.create();
     }
     public static void remove(){
 //        UsersTable.destroy();

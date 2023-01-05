@@ -1,5 +1,6 @@
 package com.ky.controllers.admin.media;
 
+import com.ky.listeners.ContextMediaListener;
 import com.ky.utils.MediaFile;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -22,9 +23,7 @@ import java.util.List;
 public class MediaController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String root = getServletContext().getRealPath("/uploads");
-        ArrayList<String> files = MediaFile.getFiles(root);
-        request.setAttribute("files", files);
+        new ContextMediaListener(getServletContext()).updateValue(null);
         request.getRequestDispatcher("admin/media/index.jsp").forward(request, response);
     }
 
@@ -56,13 +55,14 @@ public class MediaController extends HttpServlet {
                     } else {
                         String contextPath = getServletContext().getRealPath("/");
                         processUploadedFile(item, contextPath);
+                        new ContextMediaListener(getServletContext()).updateValue(null);
                     }
                 }
             } catch (FileUploadException e) {
                 e.printStackTrace();
             }
         } else {
-            pw.print("reqest is regular");
+            //pw.print("request is regular");
         }
         response.sendRedirect("media");
     }

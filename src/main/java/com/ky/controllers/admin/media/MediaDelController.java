@@ -1,5 +1,6 @@
 package com.ky.controllers.admin.media;
 
+import com.ky.listeners.ContextMediaListener;
 import com.ky.utils.MediaFile;
 
 import javax.servlet.*;
@@ -14,6 +15,7 @@ public class MediaDelController extends HttpServlet {
         String item=request.getParameter("media");
         String root = getServletContext().getRealPath("/uploads");
         MediaFile.delete(root,item);
+        new ContextMediaListener(getServletContext()).updateValue(null);
         response.sendRedirect(request.getHeader("referer"));
     }
 }

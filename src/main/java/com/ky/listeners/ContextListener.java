@@ -11,10 +11,12 @@ public class ContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         Database.run();
+        new ContextMediaListener(sce.getServletContext()).updateValue(null);
+        new ContextPostListener(sce.getServletContext()).updateValue(null);
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-      Database.remove();
+        Database.remove();
     }
 }

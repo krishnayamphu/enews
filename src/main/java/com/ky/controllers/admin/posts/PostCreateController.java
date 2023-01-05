@@ -2,8 +2,10 @@ package com.ky.controllers.admin.posts;
 
 import com.ky.dao.CategoryDAO;
 import com.ky.dao.PostDAO;
+import com.ky.listeners.ContextPostListener;
 import com.ky.models.Category;
 import com.ky.models.Post;
+import com.ky.models.User;
 import com.ky.utils.MediaFile;
 
 import javax.servlet.*;
@@ -17,9 +19,6 @@ public class PostCreateController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Category> categories= CategoryDAO.allCategories();
-        String root = getServletContext().getRealPath("/uploads");
-        ArrayList<String> files = MediaFile.getFiles(root);
-        request.setAttribute("files", files);
         request.setAttribute("categories",categories);
         request.getRequestDispatcher("admin/posts/create.jsp").forward(request,response);
     }
@@ -30,7 +29,8 @@ public class PostCreateController extends HttpServlet {
         String content=request.getParameter("content");
         String image=request.getParameter("image");
         int categoryId=Integer.parseInt(request.getParameter("category"));
-        int userId=1;
+        User currentUser= (User) getServletContext().getAttribute("currentUser");
+        int userId=currentUser.getId();
         Post post=new Post();
         post.setTitle(title);
         post.setContent(content);
@@ -38,6 +38,8 @@ public class PostCreateController extends HttpServlet {
         post.setCategoryId(categoryId);
         post.setUserId(userId);
         PostDAO.create(post);
+
+        new ContextPostListener(getServletContext()).updateValue(null);
         response.sendRedirect("posts");
     }
 }
